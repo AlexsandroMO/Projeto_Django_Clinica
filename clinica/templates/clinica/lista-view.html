@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}Visualizar Pacientes{% endblock %}
+
+{% block content %}
+<div class="offset-1 col-10 list-div">
+    <h1>{{pacientes.nome}}</h1>
+    <br>
+    <div class="col-4 alinha-col2">
+        <table class='minhaTabela2'>
+            <strong style="color:#A0522D; font-size: 18px;">Dados Pessoais</strong><br><br>
+            <tbody>
+                <tr>
+                    <td>CPF: </td>
+                    <td id="alinha-td1">{{ cpf_number }}</td>
+                </tr>
+                <tr>
+                    <td>GÊNERO: </td>
+                    <td id="alinha-td1">{{pacientes.genero}}</td>
+                </tr>
+                <tr>
+                    <td>ANIVERSÁRIO: </td>
+                    <td id="alinha-td1">{{pacientes.aniversario}}</td>
+                </tr>
+                <tr>
+                    <td>EMPRESA: </td>
+                    <td id="alinha-td1">{{pacientes.empresa}}</td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <br>
+        <table class='minhaTabela2'>
+            <strong style="color:#A0522D; font-size: 18px;">Endereço</strong><br><br>
+            <tbody>
+                <tr>
+                    <td>CEP: </td>
+                    <td id="alinha-td2">{{cep_number}}</td>
+                </tr>
+                <tr>
+                    <td>RUA: </td>
+                    <td id="alinha-td2">{{pacientes.rua}}</td>
+                </tr>
+                <tr>
+                    <td>NÚMERO: </td>
+                    <td id="alinha-td2">{{pacientes.numero}}</td>
+                </tr>
+                <tr>
+                    <td>BAIRRO: </td>
+                    <td id="alinha-td2">{{pacientes.bairro}}</td>
+                </tr>
+
+                <tr>
+                    <td>CIDADE: </td>
+                    <td id="alinha-td2">{{pacientes.cidade}}</td>
+                </tr>
+
+                <tr>
+                    <td>ESTADO: </td>
+                    <td id="alinha-td2">{{pacientes.estado}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<br>
+</div>
+
+{% endblock %}

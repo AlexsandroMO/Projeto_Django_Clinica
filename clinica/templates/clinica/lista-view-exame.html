@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Visualizar Exames{% endblock %}
+
+{% block content %}
+<div class="offset-1 col-10 list-div">
+    <h1>{{exames.nome_paciente}}</h1>
+    <br>
+    <div class="col-4 alinha-col3">
+        <table class='minhaTabela3'>
+            <strong style="color:#A0522D; font-size: 18px;">Dados de Exames</strong><br><br>
+            <tbody>
+                <tr>
+                    <td>TIPO de EXAME: </td>
+                    <td id="alinha-td3">{{ exames.tipo_exame}}</td>
+                </tr>
+                <tr>
+                    <td>DATA DO EXAME: </td>
+                    <td id="alinha-td3">{{exames.data_exame}}</td>
+                </tr>
+                <tr>
+                    <td>DATA DE ENTREGA: </td>
+                    <td id="alinha-td3">{{exames.data_exame_devolucao}}</td>
+                </tr>
+                <tr>
+                    <td>LISTA DE EXAMES: </td>
+                    <td id="alinha-td3">{{exames.lista_exames}}</td>
+                </tr>
+                <tr>
+                    <td>OBSERVAÇÕES: </td>
+                    <td id="alinha-td3">{{exames.obs_exame}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<br>
+</div>
+
+{% endblock %}

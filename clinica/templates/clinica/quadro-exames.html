@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %}Visualizar Pacientes{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="offset-1 col-12 list-div">
+        <h1>Lista de Exames por Empresas</h1>
+
+        <div class="col-9 search-div">
+            <table class="minhaTabela">
+                <thead>
+                <tr>
+                    <th scope="row" rowspan="1" colspan="1">EMPRESA<br><br></th>
+                    <th rowspan="1" colspan="1">VALOR<br><br></th>
+                    <th rowspan="1" colspan="1">EXAME <br><br></th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for item in df %}
+
+                    <tr>
+                        <td>{{ item.0 }}</td>
+                        <td>{{ item.1 }}</td>
+                        <td>R$ {{ item.2 }},00</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    
+    <div class="col-9 search-div">
+        <table class="minhaTabela4">
+            <tbody>
+                <tr>
+                    <td>Total:</td>
+                    <td></td>
+                    <td><b>&nbsp&nbsp&nbsp&nbspR$ {{somatorio}},00</b></td>
+                </tr>
+            </tbody>
+        </table>
+    </div> 
+    
+    </div>
+</div>
+
+<br>
+<br>
+
+{% endblock %}
+
+<!-- <a href="#"><button type="button" class="btn btn-outline-secondary" id="bt-0">Novo</button></a>
+<a href="#"><button type="button" class="btn btn-outline-secondary" id="bt-0">Voltar</button></a> -->

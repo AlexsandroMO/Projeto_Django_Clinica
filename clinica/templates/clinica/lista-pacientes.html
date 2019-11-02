@@ -1,0 +1,76 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Lista de Pacientes{% endblock %}
+
+{% block content %}
+<div class="offset-1 col-10 list-div">
+    <h1>Lista de Pacientes</h1>
+    <a id="add-link" href="new_paciente/">
+        <div class="col-2 add-div">
+            <i class="fas fa-plus"></i>Novos Pacientes
+        </div>
+    </a>
+    <div class="col-9 search-div">
+        <form method="GET" id="search-form">
+            <input class="form-control" type="search" id="search" name="search" placeholder="Digite o nome do Paciente" value="{{request.GET.search}}">
+            <i class="fas fa-search"></i>
+        </form>
+    </div>
+    {% if messages %}
+        <ul class="messages">
+           {% for message in messages %}
+                <li {% if message.tags %}class="alert alert-{{message.tags}}"{% endif %}>{{ message }}</li>
+           {% endfor %}
+        </ul>
+    {% endif %}
+    <table class="minhaTabela4">
+        <thead>
+            <tr>
+                <td><b><br>NOME DO </b></td></a>
+                <td><b><br>CPF DO PACIENTE</b></td>
+                <td><b><br>EMPRESA DO PACIENTE</b></td>
+                <td></td>
+            </tr>
+        </thead>
+    </table>
+    <ul class="task-list">
+            {% for paciente in pacientes %}
+            <li class="task-item">
+                <span><a href="/lista_view/{{ paciente.id }}">
+                    <div class="col-11 alinha-col1">
+                        <table class="minhaTabela">
+                            <tbody>
+                                <tr>
+                                    <td>{{ paciente.nome }}</td></a>
+                                    <td>{{ paciente.cpf }}</td>
+                                    <td>{{ paciente.empresa }}</td>
+                                </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                </span>
+                <a href="delete_paciente/{{paciente.id}}" class="delete-btn"><span><i class="fas fa-trash"></i></span></a>
+                <a href="edit_paciente/{{paciente.id}}"><span><i class="fas fa-edit"></i></span></a>
+            </li>
+            {% endfor %}
+        </ul>
+    <div class="pagination">
+        <span class="step-links">
+            {% if pacientes.has_previous %}
+                <a href="?page={{pacientes.previous_page_number}}"><i class="fas fa-arrow-left"></i></a>
+            {% endif %}
+            {% if pacientes.paginator.num_pages %}
+            <span class="current">
+                {{pacientes.number}} de {{pacientes.paginator.num_pages}}
+            </span>
+            {% endif %}
+            {% if pacientes.has_next %}
+                <a href="?page={{pacientes.next_page_number}}"><i class="fas fa-arrow-right"></i></a>
+            {% endif %}
+        </span>
+    </div>
+</div>
+
+
+{% endblock %}
